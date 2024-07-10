@@ -15,16 +15,21 @@
             align-items: center;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             background-color: #fff;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
         }
+        .ingredients {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
         .recipe-content {
             flex: 2;
-            padding-right: 20px;
+            padding-left: 20px;
         }
         .image-container {
             flex: 1;
@@ -36,18 +41,22 @@
             max-width: 100%;
             border-radius: 10px;
         }
-        h1 {
+        h1, h2 {
             color: #4a4a4a;
             text-align: center;
             margin-bottom: 20px;
             font-size: 1.8em;
         }
-        .steps {
+        h2 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .steps, .ingredient-list {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
-        .step {
+        .step, .ingredient {
             font-size: 14px;
             margin: 10px 0;
             color: #555;
@@ -58,7 +67,7 @@
             transform: translateY(10px);
             transition: opacity 0.3s, transform 0.3s;
         }
-        .step.visible {
+        .step.visible, .ingredient.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -78,6 +87,28 @@
 </head>
 <body>
     <div class="container">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul class="ingredient-list">
+                <li class="ingredient">1 cup Basmati rice</li>
+                <li class="ingredient">1 cup mixed vegetables</li>
+                <li class="ingredient">2 tablespoons oil or ghee</li>
+                <li class="ingredient">1 bay leaf</li>
+                <li class="ingredient">1 inch cinnamon stick</li>
+                <li class="ingredient">3-4 cloves</li>
+                <li class="ingredient">2-3 cardamom pods</li>
+                <li class="ingredient">1 teaspoon cumin seeds</li>
+                <li class="ingredient">1 sliced onion</li>
+                <li class="ingredient">1 tablespoon ginger-garlic paste</li>
+                <li class="ingredient">2 slit green chilies</li>
+                <li class="ingredient">1 chopped tomato</li>
+                <li class="ingredient">1/2 teaspoon turmeric</li>
+                <li class="ingredient">1 teaspoon garam masala</li>
+                <li class="ingredient">Salt to taste</li>
+                <li class="ingredient">2 cups water</li>
+                <li class="ingredient">Chopped coriander leaves for garnish</li>
+            </ul>
+        </div>
         <div class="recipe-content">
             <h1 style="color:#4caf50">Pulao Recipe</h1>
             <ul class="steps">
@@ -101,16 +132,16 @@
     </div>
 
     <script>
-        function revealSteps() {
-            const steps = document.querySelectorAll('.step');
-            steps.forEach((step, index) => {
+        function revealItems() {
+            const items = document.querySelectorAll('.step, .ingredient');
+            items.forEach((item, index) => {
                 setTimeout(() => {
-                    step.classList.add('visible');
-                }, index * 300);
+                    item.classList.add('visible');
+                }, index * 100);
             });
         }
 
-        window.addEventListener('load', revealSteps);
+        window.addEventListener('load', revealItems);
     </script>
 </body>
 </html>
