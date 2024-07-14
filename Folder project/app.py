@@ -18,6 +18,7 @@ restaurants = [
         ]
     },
     {
+        
         "id": 2,
         "name": "Sushi Paradise",
         "cuisine": "Japanese",
@@ -101,30 +102,6 @@ responses = {
 4. Daulat Ki Chaat
 5. Aloo Tikki""",
 
-    'Bisi bele bath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'Bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath recipe': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'how to make bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'how to make bisibelebath?': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath preparation': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'prepare bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'cook bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath instructions': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath steps': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath ingredients': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'make bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath method': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath cooking': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath dish': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'bisibelebath how to': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'recipe for bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'recipe for bisibelebath?': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'how do i make bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'how do i make bisibelebath?': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'can you tell me how to make bisibelebath': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-    'can you tell me how to make bisibelebath?': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
-
     'how to make bisibelebath?': "<a href='/another-page'>Please click here to go for Bisibelebath recipe </a>",
     'hello': "Hello! How can I help you today?",
     'hi': "Yeah, what's up?",
@@ -135,6 +112,13 @@ responses = {
     'favorite dish you would recommend': "I would recommend you an authentic South Indian dish BisiBelebath. <a href='https://www.vegrecipesofindia.com/bisi-bele-bath-recipe/'>Click here to go for the recipe</a>",
     'i want to order something': "<a href='/restaurants'>Click here to view restaurants and order food</a>",
     'order food': "<a href='/restaurants'>Click here to view restaurants and order food</a>",
+    'how to make masala dosa?': "<a href='/dosa-page'>Please click here to go for MysoreMasalaDosa recipe </a>",
+    'how to make Finger Millet Halwa?':"<a href='/haalbai-page'>Please click here to go for Finger Millet recipe </a>",
+    'how to make Neer Dosa?':"<a href='/neerdosa-page'>Please click here to go for Neer Dosa Recipe </a>",
+    'how to make Ragi Mudde?':"<a href='/ragimude-page'>Please click here to go for Ragi mude recipe </a>",
+    'how to make khara Pongal?':"<a href='/kp-page'>Please click here to go for khara pongal recipe </a>",
+    'how to make Jolad roti?':"<a href='/joladroti-page'>Please click here to go for jolad roti recipe </a>",
+
 }
 
 def get_bot_response(user_input):
@@ -150,7 +134,14 @@ def get_autocomplete_suggestions(query):
         "top 5 foods of Tamil Nadu",
         "top 5 foods of Assam",
         "top 5 foods of Delhi",
-        "i want to order something"
+        "i want to order something",
+        "how to make masala dosa?",
+        "how to make Finger Millet Halwa?",
+        "how to make Neer Dosa?",
+        "how to make Ragi Mudde?",
+        "how to make khara Pongal?",
+        "how to make Jolad roti?",
+        
         # Add more states as needed
     ]
     return [s for s in suggestions if query.lower() in s.lower()]
@@ -179,9 +170,33 @@ def autocomplete():
 def another_page():
     return render_template('bisibelebath.html')
 
+@app.route('/dosa-page')
+def doas_page():
+    return render_template('MysoreMasalaDosa.html')
+
 @app.route('/pulao-page')
 def pulao_page():
     return render_template('pulao.html')
+
+@app.route('/neerdosa-page')
+def neerdosa_page():
+    return render_template('NeerDosa.html')
+
+@app.route('/joladroti-page')
+def joladroti_page():
+    return render_template('JoladRotti.html')
+
+@app.route('/ragimude-page')
+def ragimude_page():
+    return render_template('RagiMude.html')
+
+@app.route('/kp-page')
+def kp_page():
+    return render_template('KharaPongal.html')
+
+@app.route('/haalbai-page')
+def haalbai_page():
+    return render_template('haalbai.html')
 
 @app.route('/restaurants')
 def list_restaurants():
